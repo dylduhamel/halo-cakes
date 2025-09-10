@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HALO Cakes | Handmade with Love</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #f8a5c2;
+        --primary-light: #ffd1dc;
+        --secondary: #c5e0dc;
+        --accent: #f8d7e8;
+        --dark: #5a5a5a;
+        --light: #ffffff;
+        --shadow: rgba(0, 0, 0, 0.05);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--dark);
+        background-color: #fffaf5;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--primary);
+        color: white;
+        padding: 12px 28px;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-light);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px var(--shadow);
+      }
+
+      .btn.secondary {
+        background-color: var(--secondary);
+        color: var(--dark);
+      }
+
+      .btn.secondary:hover {
+        background-color: var(--accent);
+      }
+
+      /* Header styles */
+      header {
+        background-color: var(--light);
+        box-shadow: 0 2px 10px var(--shadow);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .header-shrink {
+        padding: 10px 0;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .logo span {
+        font-weight: 400;
+        color: var(--dark);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+        position: relative;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: var(--dark);
+        margin: 5px;
+        transition: all 0.3s ease;
+      }
+
+      /* Hero section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background-color: #f9e8f0;
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.5)
+          ),
+          url("Img/3.png");
+        background-size: cover;
+        background-position: right center;
+        position: relative;
+        padding-top: 60px;
+      }
+
+      .hero-content {
+        width: 100%;
+        max-width: 600px;
+        padding-left: 20px;
+        margin-top: -50px;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        color: var(--dark);
+      }
+
+      .hero-content h1 span {
+        color: var(--primary);
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 15px;
+      }
+
+      /* About section */
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        display: inline-block;
+        padding-bottom: 10px;
+        position: relative;
+      }
+
+      .section-title h2:after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 3px;
+        background-color: var(--primary);
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .about-img {
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px var(--shadow);
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .about-text p {
+        margin-bottom: 15px;
+      }
+
+      /* Offerings section */
+      .offerings {
+        background-color: var(--accent);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .offerings:before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        top: -150px;
+        left: -150px;
+      }
+
+      .offerings:after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        bottom: -100px;
+        right: -100px;
+      }
+
+      .offerings-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .offering-card {
+        background-color: var(--light);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px var(--shadow);
+        transition: all 0.3s ease;
+      }
+
+      .offering-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px var(--shadow);
+      }
+
+      .offering-img {
+        height: 400px;
+        overflow: hidden;
+      }
+
+      .offering-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+
+      .offering-card:hover .offering-img img {
+        transform: scale(1.1);
+      }
+
+      .offering-content {
+        padding: 20px;
+      }
+
+      .offering-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: var(--primary);
+      }
+
+      .offering-content p {
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+      }
+
+      /* Portfolio section */
+      .portfolio-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+        gap: 10px;
+      }
+
+      .filter-btn {
+        padding: 8px 20px;
+        background-color: var(--light);
+        border: 1px solid var(--primary-light);
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background-color: var(--primary);
+        color: var(--light);
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .portfolio-item {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px var(--shadow);
+        transition: all 0.3s ease;
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px var(--shadow);
+      }
+
+      .portfolio-img {
+        height: 400px;
+      }
+
+      .portfolio-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+
+      .portfolio-item:hover .portfolio-img img {
+        transform: scale(1.1);
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: var(--light);
+        transform: translateY(100%);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        transform: translateY(0);
+      }
+
+      .portfolio-overlay h3 {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+      }
+
+      .portfolio-overlay p {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      /* Contact section */
+      .contact {
+        background-color: var(--secondary);
+        position: relative;
+      }
+
+      .contact-content {
+        display: flex;
+        gap: 50px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-info {
+        flex: 1;
+      }
+
+      .contact-info h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .contact-info p {
+        margin-bottom: 15px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        box-shadow: 0 5px 15px var(--shadow);
+      }
+
+      .contact-icon svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--primary);
+      }
+
+      .contact-form {
+        flex: 1;
+        background-color: var(--light);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px var(--shadow);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(248, 165, 194, 0.2);
+      }
+
+      textarea.form-control {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      /* Footer section */
+      footer {
+        background-color: #333;
+        color: var(--light);
+        padding: 50px 0 20px;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-col {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .footer-col h4 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-col h4:after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary);
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer-col ul {
+        list-style: none;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-col ul li a {
+        transition: all 0.3s ease;
+      }
+
+      .footer-col ul li a:hover {
+        color: var(--primary);
+        padding-left: 5px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 10px;
+      }
+
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background-color: #444;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background-color: var(--primary);
+        transform: translateY(-5px);
+      }
+
+      .social-links svg {
+        width: 18px;
+        height: 18px;
+        fill: var(--light);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #444;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 992px) {
+        .about-content {
+          flex-direction: column;
+        }
+
+        .contact-content {
+          flex-direction: column;
+        }
+
+        .hero-content h1 {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          padding: 15px 0;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: 70px;
+          right: 0;
+          width: 100%;
+          background-color: var(--light);
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 0;
+          box-shadow: 0 5px 15px var(--shadow);
+          transform: translateY(-150%);
+          transition: transform 0.3s ease;
+          opacity: 0;
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        .hamburger.active div:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active div:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .about-text h3,
+        .contact-info h3 {
+          font-size: 1.8rem;
+        }
+
+        .hero-btns {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .section {
+          padding: 70px 0;
+        }
+
+        .portfolio-grid,
+        .offerings-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Animation styles */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .fade-in.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header id="header">
+      <div class="container header-container">
+        <a href="#" class="logo">HALO <span>Cakes</span></a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#offerings">Flavors</a></li>
+            <li><a href="#portfolio">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content fade-in">
+          <h1>Handcrafted Cakes <span>Made with Love</span></h1>
+          <p>
+            Every HALO cake is crafted with the finest ingredients and
+            customized to your exact specifications. From elegant wedding cakes
+            to playful birthday treats, we bring your sweetest dreams to life.
+          </p>
+          <div class="hero-btns">
+            <a href="#portfolio" class="btn">View Our Cakes</a>
+            <a href="#contact" class="btn secondary">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>About HALO</h2>
+        </div>
+        <div class="about-content">
+          <div class="about-img fade-in">
+            <img src="Img/bongo.jpeg" alt="Hailey Olivia Duhamel" />
+          </div>
+          <div class="about-text fade-in">
+            <h3>The Story Behind HALO Cakes</h3>
+            <p>
+              Hello! I'm Hailey Olivia Duhamel, the passionate baker behind HALO
+              Cakes. My journey began in my grandmother's kitchen, where I
+              learned that the secret ingredient in any recipe is love.
+            </p>
+            <p>
+              After culinary school and years working in top bakeries, I decided
+              to bring my unique cake designs and flavors directly to clients
+              who want something truly special for their celebrations.
+            </p>
+            <p>
+              At HALO Cakes, I believe every occasion deserves a cake that not
+              only looks stunning but tastes incredible too. Each creation is
+              handcrafted with premium ingredients and careful attention to
+              detail, ensuring your cake is as unique as your celebration.
+            </p>
+            <a href="#contact" class="btn">Let's Create Something Sweet</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offerings Section -->
+    <section id="offerings" class="section offerings">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>Our Cake Offerings</h2>
+        </div>
+        <div class="offerings-grid">
+          <div class="offering-card fade-in">
+            <div class="offering-img">
+              <img src="Img/choc.jpeg" alt="Cake Flavors" />
+            </div>
+            <div class="offering-content">
+              <h3>Delicious Flavors</h3>
+              <p>
+                Choose from our signature flavors including vanilla bean, rich
+                chocolate, red velvet, lemon, carrot, coconut, and seasonal
+                specialties. All cakes can be paired with complementary fillings
+                and frostings.
+              </p>
+            </div>
+          </div>
+          <div class="offering-card fade-in">
+            <div class="offering-img">
+              <img src="Img/cake_2.jpg" alt="Custom Designs" />
+            </div>
+            <div class="offering-content">
+              <h3>Custom Designs</h3>
+              <p>
+                From elegant wedding cakes to whimsical birthday creations, each
+                HALO cake is custom designed to match your vision. We specialize
+                in buttercream artistry, fondant decorations, and edible
+                printing.
+              </p>
+            </div>
+          </div>
+          <div class="offering-card fade-in">
+            <div class="offering-img">
+              <img src="Img/cake_1.jpg" alt="Special Occasions" />
+            </div>
+            <div class="offering-content">
+              <h3>Special Occasions</h3>
+              <p>
+                Celebrate life's milestones with a cake that's as special as the
+                occasion. We create stunning cakes for weddings, birthdays, baby
+                showers, anniversaries, graduations, and corporate events.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>Cake Gallery</h2>
+        </div>
+        <div class="portfolio-filters fade-in">
+          <button class="filter-btn active" data-filter="all">All Cakes</button>
+          <button class="filter-btn" data-filter="wedding">Wedding</button>
+          <button class="filter-btn" data-filter="birthday">Birthday</button>
+          <button class="filter-btn" data-filter="special">
+            Special Events
+          </button>
+          <button class="filter-btn" data-filter="seasonal">Seasonal</button>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-item fade-in" data-category="wedding">
+            <div class="portfolio-img">
+              <img src="Img/cake_1.JPG" alt="Elegant Wedding Cake" />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Elegant Flower Wedding Cake</h3>
+              <p>
+                Vanilla bean cake with raspberry filling and Swiss meringue
+                buttercream
+              </p>
+            </div>
+          </div>
+          <div class="portfolio-item fade-in" data-category="birthday">
+            <div class="portfolio-img">
+              <img src="Img/cake_4.jpg" alt="Colorful Birthday Cake" />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Fresh Strawberry Cream Cake</h3>
+              <p>
+                Light vanilla sponge cake layered with fresh strawberry compote
+                and topped with silky vanilla buttercream and sliced fresh
+                strawberries
+              </p>
+            </div>
+          </div>
+          <div class="portfolio-item fade-in" data-category="birthday">
+            <div class="portfolio-img">
+              <img src="Img/choc_2.jpeg" alt="Chocolate Birthday Cake" />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Double Chocolate Celebration Cake</h3>
+              <p>
+                Rich chocolate cake with chocolate ganache filling and fudge
+                buttercream, topped with colorful sprinkles
+              </p>
+            </div>
+          </div>
+          <div class="portfolio-item fade-in" data-category="special">
+            <div class="portfolio-img">
+              <img src="Img/cake_11.JPG" alt="Baby Shower Cake" />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Cookies & Cream Dream Cake</h3>
+              <p>
+                Vanilla cake with Oreo buttercream frosting, topped with
+                chocolate sandwich cookies and cookie crumbs
+              </p>
+            </div>
+          </div>
+          <div class="portfolio-item fade-in" data-category="special">
+            <div class="portfolio-img">
+              <img src="Img/cake_3.jpg" alt="Special Event Cake" />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Rose Gold Elegance Cake</h3>
+              <p>
+                Vanilla bean cake with strawberry filling and blush pink
+                buttercream, decorated with elegant rosette piping
+              </p>
+            </div>
+          </div>
+          <div class="portfolio-item fade-in" data-category="seasonal">
+            <div class="portfolio-img">
+              <img src="Img/cake_5.JPG" alt="Holiday Cake" />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Lobster Celebration Cake</h3>
+              <p>
+                Red velvet cake with cream cheese frosting, featuring a
+                decorative fondant lobster design
+              </p>
+            </div>
+          </div>
+          <div class="portfolio-item fade-in" data-category="seasonal">
+            <div class="portfolio-img">
+              <img src="Img/cake_10.jpeg" alt="Seasonal Celebration Cake" />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Holiday Christmas Tree Cake</h3>
+              <p>
+                Spiced vanilla cake with cinnamon buttercream, topped with piped
+                Christmas tree decorations
+              </p>
+            </div>
+          </div>
+          <div class="portfolio-item fade-in" data-category="wedding">
+            <div class="portfolio-img">
+              <img src="Img/cake_7.JPG" alt="Rustic Wedding Cake" />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Funfetti Birthday Celebration</h3>
+              <p>
+                Vanilla confetti cake with vanilla buttercream, rainbow
+                sprinkles and whipped cream dollops
+              </p>
+            </div>
+          </div>
+          <div class="portfolio-item fade-in" data-category="birthday">
+            <div class="portfolio-img">
+              <img src="Img/cake_6.jpeg" alt="Chocolate Drip Cake" />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Classic Vanilla Birthday Cake</h3>
+              <p>
+                Light vanilla sponge with smooth vanilla buttercream and elegant
+                piped meringue kisses
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>Contact Us</h2>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info fade-in">
+            <h3>Get in Touch</h3>
+            <p>
+              Ready to order a custom cake for your special occasion? Fill out
+              the form or contact us directly. We recommend booking at least 1-2
+              weeks in advance for custom orders.
+            </p>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 7 12 7s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <strong>Address:</strong>
+                <p>4518 35th St North, Arlington, VA</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <strong>Phone:</strong>
+                <p>(703) 835-5207</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <strong>Email:</strong>
+                <p>haileyduhamel@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form fade-in">
+            <form id="cake-order-form">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="event-date">Event Date</label>
+                <input
+                  type="date"
+                  id="event-date"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="cake-type">Cake Type</label>
+                <select id="cake-type" class="form-control" required>
+                  <option value="">Select cake type</option>
+                  <option value="wedding">Wedding Cake</option>
+                  <option value="birthday">Birthday Cake</option>
+                  <option value="anniversary">Anniversary Cake</option>
+                  <option value="baby-shower">Baby Shower Cake</option>
+                  <option value="custom">Custom Event Cake</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Tell us about your cake</label>
+                <textarea
+                  id="message"
+                  class="form-control"
+                  rows="5"
+                  placeholder="Please describe your vision, flavor preferences, number of guests, and any special requests."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn">Send Inquiry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h4>HALO Cakes</h4>
+            <p>
+              Handcrafted custom cakes for all of life's special moments. Made
+              with love by Hailey Olivia Duhamel.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#offerings">Cake Flavors</a></li>
+              <li><a href="#portfolio">Gallery</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Cakes We Offer</h4>
+            <ul>
+              <li><a href="#portfolio">Wedding Cakes</a></li>
+              <li><a href="#portfolio">Birthday Cakes</a></li>
+              <li><a href="#portfolio">Anniversary Cakes</a></li>
+              <li><a href="#portfolio">Baby Shower Cakes</a></li>
+              <li><a href="#portfolio">Corporate Events</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 HALO Cakes | All Rights Reserved</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile navigation toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".nav-links li a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Header scroll effect
+      const header = document.getElementById("header");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("header-shrink");
+        } else {
+          header.classList.remove("header-shrink");
+        }
+      });
+
+      // Portfolio filtering
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Remove active class from all buttons
+          filterBtns.forEach((btn) => btn.classList.remove("active"));
+
+          // Add active class to clicked button
+          btn.classList.add("active");
+
+          // Get filter value
+          const filterValue = btn.getAttribute("data-filter");
+
+          // Filter portfolio items
+          portfolioItems.forEach((item) => {
+            const category = item.getAttribute("data-category");
+
+            if (filterValue === "all" || filterValue === category) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Form submission (demo only)
+      const contactForm = document.getElementById("cake-order-form");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Thank you for your inquiry! We will get back to you soon.");
+          contactForm.reset();
+        });
+      }
+
+      // Scroll animation
+      const fadeElements = document.querySelectorAll(".fade-in");
+
+      function checkFade() {
+        fadeElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+
+          if (elementTop < windowHeight - 50) {
+            element.classList.add("active");
+          }
+        });
+      }
+
+      // Initial check
+      checkFade();
+
+      // Check on scroll
+      window.addEventListener("scroll", checkFade);
+    </script>
+  </body>
+</html>
