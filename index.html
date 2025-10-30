@@ -327,6 +327,7 @@
       .offering-img {
         height: 400px;
         overflow: hidden;
+        position: relative;
       }
 
       .offering-img img {
@@ -338,6 +339,38 @@
 
       .offering-card:hover .offering-img img {
         transform: scale(1.1);
+      }
+
+      /* New overlay styles for offerings */
+      .offering-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px 20px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+        color: var(--light);
+        transform: translateY(100%);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      .offering-card:hover .offering-overlay {
+        transform: translateY(0);
+      }
+
+      .offering-overlay h4 {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+        color: var(--light);
+      }
+
+      .offering-overlay p {
+        font-size: 0.95rem;
+        opacity: 0.9;
+        line-height: 1.5;
       }
 
       .offering-content {
@@ -789,10 +822,10 @@
               Hello! At HALO Cakes, every creation starts with a story. My own baking journey began at home in the kitchen with my family, where I discovered not only a love for baking but also how much joy a homemade cake can bring to others.
             </p>
             <p>
-              For me, baking has always been more than just mixing ingredients, it’s a way to express creativity while paying close attention to every detail. I love turning simple ingredients into something both beautiful and delicious, crafting cakes that are as memorable to look at as they are to taste.
+              For me, baking has always been more than just mixing ingredients, it's a way to express creativity while paying close attention to every detail. I love turning simple ingredients into something both beautiful and delicious, crafting cakes that are as memorable to look at as they are to taste.
             </p>
             <p>
-              What started as a passion of mine has grown into a successful small business that I’m really proud of. I love building relationships with my clients and working with them to thoughtfully design unique cakes for each of their special moments. I've learned that something sweet makes every occasion a little more special.
+              What started as a passion of mine has grown into a successful small business that I'm really proud of. I love building relationships with my clients and working with them to thoughtfully design unique cakes for each of their special moments. I've learned that something sweet makes every occasion a little more special.
             </p>
             <a href="#contact" class="btn">Let's Create Something Sweet</a>
           </div>
@@ -800,7 +833,7 @@
       </div>
     </section>
 
-    <!-- Offerings Section -->
+    <!-- Offerings Section with New Hover Overlays -->
     <section id="offerings" class="section offerings">
       <div class="container">
         <div class="section-title fade-in">
@@ -810,6 +843,12 @@
           <div class="offering-card fade-in">
             <div class="offering-img">
               <img src="Img/choc.jpeg" alt="Cake Flavors" />
+              <div class="offering-overlay">
+                <h4>Chocolate Cake</h4>
+                <p>
+                  Rich chocolate cake with chocolate buttercream frosting and chocolate ganache dripped down the sides
+                </p>
+              </div>
             </div>
             <div class="offering-content">
               <h3>Delicious Flavors</h3>
@@ -824,6 +863,12 @@
           <div class="offering-card fade-in">
             <div class="offering-img">
               <img src="Img/cake_2.jpg" alt="Custom Designs" />
+              <div class="offering-overlay">
+                <h4>Caramel Cake</h4>
+                <p>
+                  Caramel cake with homemade caramel sauce infused layers and caramel buttercream frosting with caramel dripped down the sides
+                </p>
+              </div>
             </div>
             <div class="offering-content">
               <h3>Custom Designs</h3>
@@ -836,6 +881,12 @@
           <div class="offering-card fade-in">
             <div class="offering-img">
               <img src="Img/cake_1.jpg" alt="Special Occasions" />
+              <div class="offering-overlay">
+                <h4>Wedding Cake</h4>
+                <p>
+                  Elaborate vanilla bean wedding cake with raspberry filling and Swiss meringue buttercream
+                </p>
+              </div>
             </div>
             <div class="offering-content">
               <h3>Special Occasions</h3>
